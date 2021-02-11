@@ -1,0 +1,20 @@
+.main-container{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td {
+    
+    text-align: left;
+    padding: 8px;
+    border: none;
+  }
+  
+ 

@@ -1,0 +1,57 @@
+
+<div class="section1-container">
+
+
+<h2> Section 1</h2>
+ <div class="post-container"  >
+
+	<table class="table table-bordered table-striped" >
+    
+    
+   <tr *ngFor="let posts of blogs |slice:0:10"  >
+
+     <td ><!-- <span>{{posts.userId}}</span> --> 
+    
+    	<!-- <a [routerLink]="['/section2',posts.id]"> -->
+       <!--  <a routerLink="/section2" routerLinkActive="active"> --><h3 > {{posts.id}}) {{posts.title}}</h3> <!-- </a> 	 -->
+
+
+        <div class="post-comments"  >
+
+          <form action="#">
+          	
+          		<tr>
+          			<td ><label>  comment 1</label><br><p>data</p></td> <td><label>Status:Moderation</label></td><td><input type="checkbox" id="Moderation" name="Moderation" value=""></td>
+          		</tr>
+          		<tr>
+          			<td><label > comment 2 </label><br><p>data</p></td> <td><label>Status:Pending</label></td><td><input type="checkbox" id="pending" name="pending" value=""></td>
+          		</tr>
+          		<tr>
+          			<td><label > comment 3 </label><br><p>data</p></td> <td><label>Status:Done</label></td><td><input type="checkbox" id="done" name="done" value=""></td>
+          		</tr>
+          	</form>
+
+    	<!-- {{posts.title}} -->
+
+    	</div>
+
+    
+       </td>
+    </tr>
+   
+  </table>
+
+</div>
+
+
+<form  class="" style="display:block;text-align: center;">
+ 
+        <button class="btn btn-lg btn-outline-primary">Load more</button>
+    
+</form>
+
+
+
+</div>
+
+

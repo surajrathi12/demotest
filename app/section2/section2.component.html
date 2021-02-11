@@ -1,0 +1,35 @@
+<div class="section2-container">
+<a routerLink="/section1" routerLinkActive="active"><i class="fa fa-th xfa-5"></i></a>
+<h2> Section 2</h2>
+
+ <div class="post-container" >
+
+	<table class="table table-bordered table-striped">
+    
+    
+   <tr *ngFor="let posts of blogs |slice:0:1" >
+     <td ><!-- <span>{{posts.userId}}</span> --> 
+    
+    	<h3>{{posts.id}}) {{posts.title}}</h3>
+
+    	<p>{{posts.body}}</p>
+      
+    	<div class=" commentsection" style="display:block;text-align: right;">     
+
+<label>UserId:{{posts.userId}}</label><input type="text" #pcomment class="form-control" placeholder="Enter Your Comment" >
+
+<button class="btn btn-lg btn-outline-primary" (click)=" commentsubmit(pcomment.value);"> Add Comment</button>
+<br>
+
+<p>{{comment}}</p>
+    	<!-- {{posts.title}} -->
+  
+
+    	</div>
+
+       </td>
+    </tr>
+   
+  </table>
+
+</div>
