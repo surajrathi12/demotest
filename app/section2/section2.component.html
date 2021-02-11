@@ -2,12 +2,15 @@
 <a routerLink="/section1" routerLinkActive="active"><i class="fa fa-th xfa-5"></i></a>
 <h2> Section 2</h2>
 
+id{{id}}
+
+
  <div class="post-container" >
 
 	<table class="table table-bordered table-striped">
     
     
-   <tr *ngFor="let posts of blogs |slice:0:1" >
+   <tr *ngFor="let posts of dposts " >
      <td ><!-- <span>{{posts.userId}}</span> --> 
     
     	<h3>{{posts.id}}) {{posts.title}}</h3>
@@ -22,7 +25,7 @@
 <br>
 
 <p>{{comment}}</p>
-    	<!-- {{posts.title}} -->
+    	
   
 
     	</div>

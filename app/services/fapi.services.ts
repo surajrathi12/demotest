@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable}  from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { Cposts}  from  "../classes/cpost";
 
 
@@ -26,9 +26,10 @@ getcomments(): Observable<any>{
 
 }
  
- post(cposts:Cposts):Observable<any>{
+ getpostby():Observable<any>{
+ 	let param1 =new HttpParams().set('userId',"1");
 
- return this.http.post('http://jsonplaceholder.typicode.com/posts',cposts);
+ return this.http.post('http://jsonplaceholder.typicode.com/posts',{Params:param1});
 
  }
 }

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpParams } from '@angular/common/http';
 import { FormControl } from '@angular/forms';
+import { ActivatedRoute, Router,ParamMap } from '@angular/Router';
+
 
 
 export class blog {
@@ -10,7 +12,8 @@ export class blog {
     public title: string,
     public body: string
    
-  ) {
+  ) 
+  {
   }
 }
 
@@ -22,18 +25,68 @@ export class blog {
 })
 export class Section2Component implements OnInit {
 
-postId;
+
+userId:number;
+id: number;
+
 blogs:blog[];
-  constructor(private http: HttpClient)
-   { }
+dposts;
+
+
+   constructor(
+     private http: HttpClient,
+
+     private route:ActivatedRoute,
+     private router:Router
+
+     )
+    { }
 
   ngOnInit(): void {
 
   	this.getblog();
     this.getcomment();
+     this.getdata();
+
+this.route.paramMap.subscribe(
+  params=>{
+    //this.userId= +params.get('userId');
+    this.id= +params.get('id');
+
+  }
+  );
+
+
 }
 
-getblog()
+getdata(){
+
+
+const param1 = new HttpParams(
+
+  {
+    fromObject:{
+      id:'1'    
+    }
+  });
+
+
+   this.http.get('http://jsonplaceholder.typicode.com/posts',{params:param1}).subscribe(data => {
+    
+   
+   
+    this.dposts=data;
+    console.log(data);
+   
+    
+    }, error => console.error(error));
+
+
+}
+
+
+
+ getblog()
    {
     this.http.get<any>('http://jsonplaceholder.typicode.com/posts').subscribe(data => {
     //this.data.push(data);
@@ -60,9 +113,9 @@ this.comment=pcomment;
 
 
 
-const body = { comment:"hiii" };
-        this.http.put<any>('https://jsonplaceholder.typicode.com/posts/1', body)
-            .subscribe(data => this.postId = data.id);
+// const body = { comment:"hiii" };
+//         this.http.put<any>('https://jsonplaceholder.typicode.com/posts/1', body)
+//             .subscribe(data => this.postId = data.id);
 
 }
 }

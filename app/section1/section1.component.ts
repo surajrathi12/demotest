@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-
+import { ActivatedRoute, Router,ParamMap } from '@angular/Router';
 
 
 export class blog {
@@ -29,7 +29,8 @@ export class Section1Component implements OnInit {
 	
     //showMore = true;
 blogs:blog[];
-  constructor(private http: HttpClient)
+  constructor(private http: HttpClient, private router: Router
+    )
    { }
 
   ngOnInit(): void {
